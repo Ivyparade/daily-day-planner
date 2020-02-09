@@ -1,2 +1,3 @@
 # daily-day-planner
-todo
+
+[link to the page](https://ivyparade.github.io/daily-day-planner/)
