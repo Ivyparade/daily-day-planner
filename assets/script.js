@@ -12,11 +12,36 @@ $("#currentDay").text(months[month] + " " + day + " " + year);
 for (var i = 9; i < 18; i++) {
     var x = i;
     if (x > 12) {
-        x = x - 12
-        console.log("the time is: " + x + " PM")
+        x = x - 12;
+        var ampm = x + "PM";
     } else {
-        console.log("the time is: " + x + " AM")
+        var ampm = x + "AM";
     }
+    if (hour === i) {
+        mode = "present";
+    } else if (hour > i) {
+        mode = "future";
+    } else if (hour < i) {
+        mode = "past";
+    }
+    var itenerary = localStorage.getItem(ampm);
+    if (typeof itenerary !== null) {
+        var schedule = itenerary;
+    } else {
+        schedule = " ";
+    }
+
+    var timebox = $('<div class="row"></div>');
+    var hourDisplay = $('<div class="hour col-1">' + ampm + '</div>');
+    var timeblock = $('<div class="col-10 time-block ' + mode + '"></div>');
+    var hourInput = $('<input type="text" data-ampm = "' + ampm + '" class="form-control textarea ' + mode + ' " placeholder = "' + schedule + '">');
+    var Btn = $('<button class="saveBtn col-1">save</button>');
+    timebox.append(hourDisplay);
+    timeblock.append(hourInput);
+    timebox.append(timeblock);
+    timebox.append(Btn);
+    $(".container").append(timebox);
+
 }
 
 
