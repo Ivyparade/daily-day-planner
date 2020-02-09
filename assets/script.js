@@ -7,7 +7,7 @@ var year = time.getFullYear()
 
 var months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-$("#currentDay").text(months[month] + " " + day + ", " + year);
+$("#currentDay").text(months[month] + ", " + day + ", " + year);
 
 for (var i = 9; i < 18; i++) {
     var x = i;
