@@ -7,7 +7,7 @@ var year = time.getFullYear()
 
 var months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-$("#currentDay").text(months[month] + " " + day + " " + year);
+$("#currentDay").text(months[month] + " " + day + ", " + year);
 
 for (var i = 9; i < 18; i++) {
     var x = i;
@@ -45,7 +45,9 @@ for (var i = 9; i < 18; i++) {
 }
 
 $(".saveBtn").on("click", function(event) {
-    console.log(event.target.previousSibling.firstChild.value);
+    var toStore = event.target.previousSibling.firstChild.value;
+    var newKey = event.target.previousSibling.firstChild.getAttribute("data-ampm");
+    localStorage.setItem(newKey, toStore);
 });
 
 
