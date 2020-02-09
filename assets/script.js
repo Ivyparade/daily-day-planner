@@ -25,10 +25,10 @@ for (var i = 9; i < 18; i++) {
         mode = "past";
     }
     var itenerary = localStorage.getItem(ampm);
-    if (typeof itenerary !== null) {
-        var schedule = itenerary;
+    if (typeof itenerary === "object") {
+        var schedule = "";
     } else {
-        schedule = " ";
+        schedule = itenerary;
     }
 
     var timebox = $('<div class="row"></div>');
@@ -43,5 +43,12 @@ for (var i = 9; i < 18; i++) {
     $(".container").append(timebox);
 
 }
+
+$(".saveBtn").on("click", function(event) {
+    console.log(event.target.previousSibling.firstChild.value);
+});
+
+
+
 
 
